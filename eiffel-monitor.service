@@ -1,0 +1,14 @@
+[Unit]
+Description=Eiffel Tower availability monitor
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/eiffel-monitor
+ExecStart=/usr/bin/python3 /home/pi/eiffel-monitor/monitor.py
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
