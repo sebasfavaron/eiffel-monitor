@@ -7,12 +7,16 @@ Uses Playwright to check actual availability by clicking dates.
 import json
 import time
 import logging
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 from playwright.sync_api import sync_playwright
 import requests
 
-TELEGRAM_USER_ID = "236088727"
-TELEGRAM_BOT_TOKEN = "8523282372:AAGlBlPZluaueZaihr3JmMyJg9kiW9dmJ6E"
+load_dotenv()
+
+TELEGRAM_USER_ID = os.getenv("TELEGRAM_USER_ID")
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
 TARGET_DATES = ["2026-05-15", "2026-05-16", "2026-05-17", "2026-05-18", "2026-05-19"]
 POLL_INTERVAL = 900
